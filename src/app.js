@@ -10,7 +10,7 @@ const geocode = require('./utils/geocode')
 // console.log(path.join(__dirname, "../public"));
 
 const app = express();
-
+const port = process.env.PORT || 3000
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -71,22 +71,22 @@ app.get("/help", (req, res) => {
   });
 });
 
-app.get("/help/data", (req, res) => {
-  res.send("<h2> help/data url is visited");
-});
+// app.get("/help/data", (req, res) => {
+//   res.send("<h2> help/data url is visited");
+// });
 
-app.get("/products", (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: "Please provide a search",
-    });
-  }
+// app.get("/products", (req, res) => {
+//   if (!req.query.search) {
+//     return res.send({
+//       error: "Please provide a search",
+//     });
+//   }
 
-  console.log(req.query);
-  res.send({
-    products: [],
-  });
-});
+//   console.log(req.query);
+//   res.send({
+//     products: [],
+//   });
+// });
 
 app.get("/weather", (req, res) => {
   if (!req.query.address) {
